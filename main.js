@@ -3,6 +3,11 @@ class ValidaFormulario {
       this.formulario = document.querySelector('.formulario');
       this.eventos();
     }
+        limpaCampos() {
+        for (let campo of this.formulario.querySelectorAll('.validar')) {
+            campo.value = '';
+        }
+    }
   
     eventos() {
       this.formulario.addEventListener('submit', e => {
@@ -16,8 +21,10 @@ class ValidaFormulario {
       const senhasValidas = this.senhasSaoValidas();
   
       if(camposValidos && senhasValidas) {
-        alert('Formulário enviado.');
-        this.formulario.submit();
+        alert('Formulário enviado com sucesso!');
+
+            this.formulario.submit();
+             this.limpaCampos();
       }
     }
   
